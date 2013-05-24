@@ -1,10 +1,12 @@
-# URL Helper Filter Plugin for Jekyll
+# URL Helper Filter Plugin with CDN Support for Jekyll
 
 This is a Jekyll [Liquid Filter](https://github.com/Shopify/liquid/wiki/Liquid-for-Programmers) plugin that allows you to abstract your URLs in __template__ and __\_posts__ files so that your code is portable and normalized to a greater degree.
 
 By using this plugin you only ever have to change your URL components in one place and the change will be reflected throughout your entire site.
 
 This is highly advantageous with settings like `_config.yml` -> `baseurl`, your `feed.xml` file which needs absolute URLs and if you use a CDN or the cloud to serve some of your assets. See the examples below for full usage.
+
+__Version__: 1.0.0
 
 ## How to Install
 
@@ -205,8 +207,12 @@ When you _generate_ your site, the result is:
 
 Jhaura Wachsman [website](http://jhaurawachsman.com), [@jhaurawachsman](http://twitter.com/jhaurawachsman)
 
+## CHANGELOG
+
+See [CHANGELOG](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/blob/master/CHANGELOG).
+
 ## LICENSE
 
-MIT. See the complete [LICENSE](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/blob/master/LICENSE) for more information.
+MIT. See [LICENSE](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/blob/master/LICENSE).
 
 (c) Copyright 2013 Jhaura Wachsman.

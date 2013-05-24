@@ -1,3 +1,8 @@
+# URL Helper Filter Plugin with CDN Support for Jekyll
+# Version: 1.0.0
+# Release Date: 2013-05-24
+# License: MIT
+# (c) Copyright Jhaura Wachsman, http://jhaurawachsman.com
 module Jekyll
   module Filters
 
