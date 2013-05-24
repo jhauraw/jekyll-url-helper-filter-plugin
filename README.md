@@ -4,7 +4,7 @@ This is a Jekyll [Liquid Filter](https://github.com/Shopify/liquid/wiki/Liquid-f
 
 By using this plugin you only ever have to change your URL components in one place and the change will be reflected throughout your entire site.
 
-This is highly advantageous with settings like `_config.yml` -> `baseurl`, your `feed.xml` file which needs absolute URLs and if you use a CDN or the cloud to serve some of your assets. See the examples below for full usage.
+This is highly advantageous with settings like `_config.yml` -> `baseurl`, your `feed.xml` file (which needs absolute URLs) and if you use a CDN or the cloud to serve some of your assets.
 
 __Version__: 1.0.0
 
@@ -12,7 +12,7 @@ __Version__: 1.0.0
 
 To install this plugin [download](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/archive/master.zip) or copy it into a directory named `_plugins` in your project working directory.
 
-> Visit the official __Jekyll__ [plugins documentation](http://jekyllrb.com/docs/plugins/) for more information.
+> Visit the official __Jekyll__ [Plugin's Documentation](http://jekyllrb.com/docs/plugins/) for more information.
 
 ## Dependencies
 
@@ -20,11 +20,11 @@ This plugin requires the Ruby [Zlib](http://zlib.net/) library, which should be 
 
 ## Usage
 
-See the plugin itself for information on the methods. For a high-scalability implimentation and lots of usage ideas check out my own [website repo](https://github.com/jhauraw/jhaurawachsman.com).
+See the plugin itself for information on the methods. For a high-scalability implementation and lots of usage ideas check out my own [website repo](https://github.com/jhauraw/jhaurawachsman.com).
 
 ### Methods that begin with to_
 
-The methods which begin with `to_` transform a _root-relative_ path/url into the path/url type of the method's name, e.g., base, absolute or cdn.
+The methods which begin with `to_` transform a _root-relative_ path/url into the path/url __type__ of the method's name, e.g., base, absolute or cdn: `to_<type>url`.
 
 The methods can be used on assets such as CSS and JS files, images, XML feeds in template files and anywhere you find useful.
 
@@ -52,7 +52,7 @@ When you _generate_ your site, the result is:
 
 Transform a _root-relative_ URL into an _absolute_ URL.
 
-In your templates and optionally in your Markdown files use the `to_absurl` method to __append__ the `@url` parameter value in `_config.yml` to _root-relative_ URLs.
+In your templates and optionally in your Markdown files use the `to_absurl` method to __append__ the `url` parameter value in `_config.yml` to _root-relative_ URLs.
 
 Example:
 
@@ -112,7 +112,7 @@ Depending on the path given to the method, a different CDN host will be chosen u
 
     //xxxxxxxxxxxxxN.cloudfront.net/BASE_URL/PREFIX+RELEASE/img/dog.jpg
 
-Note: http: is intentionally left off for protocol anonymous URLs.
+Note: `http:` is intentionally left off for protocol anonymous URLs.
 
 See the documentation in the [plugin code](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/blob/master/url-helper-filter.rb) for this method for more information.
 
@@ -131,9 +131,10 @@ Example:
 One place the `sub_absurl` method is very handy is in your feed xml file. Use it on the `post.content` to make any _relative_ URLs _absolute_.
 
     post.content (in Markdown):
+
       Lorem ipsum dolor sit amet, consectetur adipisicing. ![Dog Image](/img/dog.jpg)
 
-    feed.xml:
+    feed.xml (entries loop):
 
     {% for post in site.posts %}
       <entry>
@@ -162,8 +163,9 @@ Q: Why not just hardcode the size in the template file?
 A: You could. However, if you are specifying a feature image for a post in the `YAML Front Matter` you will be using something like `page.image.src` in your sidebar template and so you can't insert the thumbnail size without using a regex. So moving that task into the plugin was deemed more __DRY__.
 
 Arguments:
-__size__ -  The string representing the image size. Recommended format is WidthPXxHeightPX.
-__hires__ - Boolean. Append @2x to the image name if true.
+
+  - __size__ -  The string representing the image size. Recommended format is \<width\>x\<height\> measured in pixels.
+  - __hires__ - Boolean. Append @2x to the image name if true. For use with retina logic.
 
 Example:
 
@@ -173,7 +175,7 @@ When you _generate_ your site, the result is:
 
     <img src="/img/dog_150x150.jpg" />
 
-Specify @size:
+Specify __size__:
 
     <img src="{{ '/img/dog.jpg' | sub_imgurl: '300x300' }}" />
 
@@ -181,7 +183,7 @@ Result:
 
     <img src="/img/dog_300x300.jpg" />
 
-Specify @size and @hires:
+Specify __size__ and __hires__:
 
     <img src="{{ '/img/dog.jpg' | sub_imgurl: '300x300', true }}" />
 
@@ -197,11 +199,19 @@ Category or Tag names with spaces, capital letters, etc. will break your URLs. T
 
 Example:
 
-    web Development
+    page.category: Web Development
+
+    <a href="/{{ page.category | sanitize_str }}/">...</a>
 
 When you _generate_ your site, the result is:
 
-    web-development
+    <a href="/web-development/">...</a>
+
+## Summary
+
+Abstracting and normalizing the URL structure of your website is a process that will pay dividends down the road.
+
+Bootstrapers and template developers will especially benefit from this technique when distributing their work to different users who may have preferences of their own in terms of `baseurl` directory name and string names in categories and tags.
 
 ## Author
 
