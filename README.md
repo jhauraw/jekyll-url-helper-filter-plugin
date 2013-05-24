@@ -1,4 +1,4 @@
-# URL Helper Filter Plugin with CDN Support for Jekyll
+# Jekyll URL Helper Filter Plugin with CDN Support
 
 This is a Jekyll [Liquid Filter](https://github.com/Shopify/liquid/wiki/Liquid-for-Programmers) plugin that allows you to abstract your URLs in __template__ and __\_posts__ files so that your code is portable and normalized to a greater degree.
 
