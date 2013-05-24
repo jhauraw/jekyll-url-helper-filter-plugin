@@ -8,7 +8,7 @@ This is highly advantageous with settings like `_config.yml` -> `baseurl`, your 
 
 ## How to Install
 
-To install this plugin download or copy into a directory named `_plugins` in your project working directory.
+To install this plugin [download](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/archive/master.zip) or copy it into a directory named `_plugins` in your project working directory.
 
 > Visit the official __Jekyll__ [plugins documentation](http://jekyllrb.com/docs/plugins/) for more information.
 
@@ -112,7 +112,7 @@ Depending on the path given to the method, a different CDN host will be chosen u
 
 Note: http: is intentionally left off for protocol anonymous URLs.
 
-See the documentation in the plugin code for this method for more information.
+See the documentation in the [plugin code](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/blob/master/url-helper-filter.rb) for this method for more information.
 
 ## Methods that begin with sub_
 
