@@ -10,7 +10,7 @@ __Version__: 1.0.0
 
 ## How to Install
 
-To install this plugin [download](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/archive/master.zip) or copy it into a directory named `_plugins` in your project working directory.
+To install this plugin [download](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/archive/master.zip) or [copy](https://github.com/jhauraw/jekyll-url-helper-filter-plugin) it into a directory named `_plugins` in your project working directory.
 
 > Visit the official __Jekyll__ [Plugin's Documentation](http://jekyllrb.com/docs/plugins/) for more information.
 
