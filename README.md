@@ -22,13 +22,13 @@ This plugin requires the Ruby [Zlib](http://zlib.net/) library, which should be 
 
 See the plugin itself for information on the methods. For a high-scalability implementation and lots of usage ideas check out my own [website repo](https://github.com/jhauraw/jhaurawachsman.com).
 
-### Methods that begin with to_
+### Methods that begin with to\_
 
 The methods which begin with `to_` transform a _root-relative_ path/url into the path/url __type__ of the method's name, e.g., base, absolute or cdn: `to_<type>url`.
 
 The methods can be used on assets such as CSS and JS files, images, XML feeds in template files and anywhere you find useful.
 
-### method to_baseurl
+### method: to\_baseurl
 
 Transform a _root-relative_ URL into a _base-relative_ URL.
 
@@ -48,7 +48,7 @@ When you _generate_ your site, the result is:
 
     <link rel="stylesheet" href="/blog/css/site.css" />
 
-### method to_absurl
+### method: to\_absurl
 
 Transform a _root-relative_ URL into an _absolute_ URL.
 
@@ -72,7 +72,7 @@ If you also have `baseurl` set in `_config.yml` then `to_baseurl` will be run be
 
     <link href="http://www.domain.tld/blog/feed/index.xml" rel="self" />
 
-### method to_cdnurl
+### method: to\_cdnurl
 
 Prepend a CDN 'virtual versioned' URL for any relative URL resource. Uses up to 4 hosts for multiple download streams at the same time.
 
@@ -116,13 +116,13 @@ Note: `http:` is intentionally left off for protocol anonymous URLs.
 
 See the documentation in the [plugin code](https://github.com/jhauraw/jekyll-url-helper-filter-plugin/blob/master/url-helper-filter.rb) for this method for more information.
 
-## Methods that begin with sub_
+### Methods that begin with sub\_
 
 Methods that begin with `sub_` do single or global regex string replacement on the input.
 
 You should use these methods sparingly if at all as it is better to use a `to_` method on the input on a per instance basis.
 
-### methods sub_baseurl and sub_absurl
+### methods: sub\_baseurl and sub\_absurl
 
 See the `to_baseurl` and `to_absurl` for basic workings of these methods. The only difference is that the `sub_` methods search through a whole block of input rather than just a short string, meaning multiple instances of _relative_ URLs can be effected.
 
@@ -152,7 +152,7 @@ When you _generate_ your site, the result is:
       </content>
     </entry>
 
-### method sub_imgurl
+### method: sub\_imgurl
 
 Append image alternate size to images generated in templates such as sidebars and post asides.
 
@@ -191,7 +191,7 @@ Result:
 
     <img src="/img/dog_300x300@2x.jpg" />
 
-### method sanitize_str
+### method: sanitize\_str
 
 Sanitize a string for use in URLs. Specifically, when you want to link to a __category__ or __tag__ name in your templates.
 
